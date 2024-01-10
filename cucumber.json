@@ -6,7 +6,7 @@
         "paths": [
             "features/"
         ],
-        "dryRun": true,
+        "dryRun": false,
         "require": [
             "steps/*.ts"
         ],

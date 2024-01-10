@@ -14,5 +14,5 @@ Scenario: Unsuccessful Login
     Given the user enters the username as "samtest"
     And the user enters the password as "Samtest"
     When the user clicks on the login button
-    But the login should be unsuccessful 
+    Then the login should be unsuccessful 
 
