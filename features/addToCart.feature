@@ -4,7 +4,7 @@ Feature: Product tests
     Given User navigates to the application
     And User clicks on the login link
 
-  Scenario Outline: 
+  Scenario Outline: Add product to cart
     Given the user enters the username as "<username>"
     And the user enters the password as "<password>"
     And the user clicks on the login button
