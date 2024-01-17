@@ -1,5 +1,10 @@
+assets
 node_modules/
 /test-results/
+testResults/reports/*
+testResults/screenshots/*
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+index.html
+features/*.html
