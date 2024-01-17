@@ -1,4 +1,4 @@
-import { Before, BeforeAll, After, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
+import { Before, BeforeAll, After, setDefaultTimeout, AfterAll, Status, AfterStep } from "@cucumber/cucumber";
 import { chromium, Browser, Page, BrowserContext } from "@playwright/test";
 import { pageFixture } from "./pageFixture";
 
@@ -17,13 +17,18 @@ Before(async function () {
     pageFixture.page = page;
 })
 
-After(async function ({ pickle}) {
-    // Screenshot
-    const img = await pageFixture.page.screenshot({ 
-        path: `testResults/screenshots/${pickle.name}.png`,
-        type: "png"});
-    await this.attach(img, "image/png");
+AfterStep(async function ({ pickle, result }) {
+    // Screenshot failed Steps
+    if (result?.status == Status.FAILED) {
+        const img = await pageFixture.page.screenshot({
+            path: `testResults/screenshots/${pickle.name}.png`,
+            type: "png"
+        });
+        await this.attach(img, "image/png");
+    };
+})
 
+After(async function () {
     await pageFixture.page.close();
     await context.close();
 })
