@@ -18,6 +18,7 @@
             "progress-bar",
             "html:testResults/reports/cucumber-report.html",
             "json:testResults/reports/cucumber-report.json"
-        ]
+        ],
+        "parallel": 2
     }
 }
