@@ -1,6 +1,6 @@
 import { Before, BeforeAll, After, setDefaultTimeout, AfterAll, Status, AfterStep } from "@cucumber/cucumber";
 import { chromium, Browser, Page, BrowserContext } from "@playwright/test";
-import { pageFixture } from "./pageFixture";
+import { fixture } from "./pageFixture";
 import { invokeBrowser } from "../helper/browsers/browserManager";
 import { getEnv } from "../helper/env/env";
 import { createLogger } from "winston";
@@ -20,14 +20,14 @@ Before(async function ({ pickle}) {
     const scenarioName = `${pickle.name}-${pickle.id}`;
     context = await browser.newContext();
     const page = await context.newPage();
-    pageFixture.page = page;
-    pageFixture.logger = createLogger(options(scenarioName));
+    fixture.page = page;
+    fixture.logger = createLogger(options(scenarioName));
 })
 
 AfterStep(async function ({ pickle, result }) {
     // Screenshot failed Steps
     if (result?.status == Status.FAILED) {
-        const img = await pageFixture.page.screenshot({
+        const img = await fixture.page.screenshot({
             path: `testResults/screenshots/${pickle.name}.png`,
             type: "png"
         });
@@ -36,11 +36,11 @@ AfterStep(async function ({ pickle, result }) {
 })
 
 After(async function () {
-    await pageFixture.page.close();
+    await fixture.page.close();
     await context.close();
 })
 
 AfterAll(async function () {
     await browser.close();
-    pageFixture.logger.close();
+    fixture.logger.close();
 })
