@@ -5,10 +5,12 @@ import { pageFixture } from "../hooks/pageFixture";
 
 Given('User navigates to the application', {timeout : 20 * 1000}, async function () {
   await pageFixture.page.goto(process.env.BASEURL);
+  pageFixture.logger.info("Navigated to the application");
 });
 
 Given('User clicks on the login link', async function () {
   await pageFixture.page.locator("//span[text()='Login']").click();
+  pageFixture.logger.info("User clicked on login button");
 
 });
 

@@ -5,6 +5,7 @@ import { pageFixture } from "../hooks/pageFixture";
 let badgeCount: any;
 
 Given('the user searches for a {string}', async function (book) {
+    pageFixture.logger.info(`Searching for book ${book}`);
     await pageFixture.page.waitForTimeout(1000);
     badgeCount = await pageFixture.page.locator("id=mat-badge-content-0").textContent();
     await pageFixture.page.locator("//input[@type='search']").fill(book);

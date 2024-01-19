@@ -19,9 +19,7 @@
     "dotenv": "^16.3.1",
     "fs-extra": "^11.2.0",
     "multiple-cucumber-html-reporter": "^3.6.1",
-    "ts-node": "^10.9.2"
-  },
-  "dependencies": {
+    "ts-node": "^10.9.2",
     "winston": "^3.11.0"
   }
 }

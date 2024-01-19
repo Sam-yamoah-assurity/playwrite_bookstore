@@ -1,8 +1,7 @@
 assets
 node_modules/
 /test-results/
-testResults/reports/*
-testResults/screenshots/*
+testResults/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
