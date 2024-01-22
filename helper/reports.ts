@@ -1,10 +1,13 @@
+import { getEnv } from "./env/env";
+
 const report = require("multiple-cucumber-html-reporter");
 
+getEnv();
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> BROWSER UNDER TEST: " + process.env.BROWSER);
 
 report.generate({
   jsonDir: "testResults/reports",
-  reportPath: "testResults/reports",
+  reportPath: "testResults/reports/",
   reportName: "Playwright Automation Report",
   pageTitle: "BookCart App Test report",
   displayDuration: true,
