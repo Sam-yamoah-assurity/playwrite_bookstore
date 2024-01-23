@@ -1,9 +1,6 @@
-assets
 node_modules/
 /test-results/
 testResults/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-index.html
-features/*.html
