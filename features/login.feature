@@ -5,7 +5,7 @@ Background:
     And User clicks on the login link
 
 Scenario: Successful Login
-    Given the user enters the username as "samtest"
+    Given the user enters the username as "samtestt"
     And the user enters the password as "Samtest123"
     When the user clicks on the login button
     Then the login should be successful

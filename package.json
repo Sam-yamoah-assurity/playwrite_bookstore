@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "pretest": "npx ts-node helper/init.ts",
-    "test:pipeline": "cross-env ENV=pipeline cucumber-js test || true",
     "test": "cross-env ENV=local cucumber-js test || true",
-    "posttest": "npx ts-node helper/reports.ts"
+    "posttest": "npx ts-node helper/reports.ts",
+    "pipeline": "cross-env ENV=pipeline cucumber-js test"
   },
   "keywords": [],
   "author": "",

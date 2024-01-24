@@ -17,8 +17,12 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Run test results directy creation and clean up
+      run: npm run pretest
     - name: Run Cucumber tests
-      run: npm run test:pipeline
+      run: npm run pipeline
+    - name: Run report generator
+      run: npm run pretest
     - uses: actions/upload-artifact@v3
       if: always()
       with:
