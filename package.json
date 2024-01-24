@@ -7,7 +7,9 @@
     "pretest": "npx ts-node helper/init.ts",
     "test": "cross-env ENV=local cucumber-js test || true",
     "posttest": "npx ts-node helper/reports.ts",
-    "pipeline": "cross-env ENV=pipeline cucumber-js test"
+    "prepipeline": "npm run pretest",
+    "pipeline": "cross-env ENV=pipeline cucumber-js test",
+    "postpipeline": "npm run posttest"
   },
   "keywords": [],
   "author": "",
